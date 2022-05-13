@@ -10,7 +10,7 @@
       ],
     
    "logo":    "https://telegra.ph//file/5c4f15021820308c96606.jpg",  
-   "repository": "https://github.com/SeorangDion/ManagerBot",
+   "repository": "https://github.com/SeorangDion/DionBot",
    "addons": [
     {
       "plan": "heroku-postgresql",
