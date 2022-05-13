@@ -14,24 +14,24 @@ MISC_HELP = """
 ‣ `/info` - To get info of a user.
 """
 
-@dion.on(events.NewMessage(pattern="^[!?/]id"))
+@dion.on(events.NewMessage(pattern="^[!?/]id ?(.*)"))
 async def id(event):
 
     if event.is_private:
-       await event.reply(f"Your id is `{event.sender_id}`.")
+       await event.reply(f"❏ **Your ID**:\n└ `{event.sender_id}`.")
        return
 
     ID = """
-**Chat-ID:** `{}`
-**User-ID:** `{}`
+**Your ID:** `{}`
+**Group ID:** `{}`
 """
 
     msg = await event.get_reply_message()
     if not msg:
-      await event.reply(ID.format(event.chat_id, event.sender_id))
+      await event.reply(ID.format(event.sender_id, event.chat_id))
       return
 
-    await event.reply(f"User {msg.sender.first_name} id is `{msg.sender_id}`.")
+    await event.reply(f"❏ **{msg.sender.first_name} ID**:\n└ `{msg.sender_id}`.\n\n❏ **Group's ID**:\n└ `{event.chat_id}`")
  
 @dion.on(events.NewMessage(pattern="^[!?/]info ?(.*)"))
 async def info(event):
