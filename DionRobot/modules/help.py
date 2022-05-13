@@ -2,9 +2,9 @@ from telethon import events, Button
 from DionRobot import dion
 
 btn =[
-    [Button.inline("Admin", data="admin"), Button.inline("Purges", data="purges")],
-    [Button.inline("Locks", data="locks"), Button.inline("UserInfo", data="misc")],
-    [Button.inline("Welcome", data="wlc"), Button.inline("Zombies", data="zombies")]]
+    [Button.inline("Admin", data="admin"), Button.inline("Locks", data="locks")],
+    [Button.inline("Purges", data="purges"), Button.inline("UserInfo", data="misc")],
+    [Button.inline("Zombies", data="zombies")]]
 
 HELP_TEXT = """
 **Dion Robot help menu:**
