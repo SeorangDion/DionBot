@@ -9,7 +9,7 @@
 [![Python](https://img.shields.io/badge/Python-v3.10.4-blue)](https://www.python.org/)
 [![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/SeorangDion/DionBot)
 
-## Configs
+## Configs Vars
 ```
 API_ID - Your telegram api id, get from my.telegram.org
 API_HASH - Your telegram api Hash, get from my.telegram.oeg
@@ -29,4 +29,6 @@ TOKEN - Your bot token, get one from t.me/botfather
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Credits:
-• [Dion](https://GitHub.com/SeorangDion)
+• [Dion](https://GitHub.com/SeorangDion) - Own
+
+• [Galih](https://github.com/galihpujiirianto) - Dev
