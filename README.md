@@ -11,13 +11,15 @@
 
 ## Configs
 ```
-APP_ID - Your telegram api id.
-API_HASH - Your telegram api Hash.
-TOKEN - Your bot token.
+API_ID - Your telegram api id, get from my.telegram.org
+API_HASH - Your telegram api Hash, get from my.telegram.oeg
+TOKEN - Your bot token, get one from t.me/botfather
 ```
 
-## Telegram Support Chat
-[![Telegram](https://img.shields.io/badge/telegram-1b77FF.svg?style=for-the-badge&logo=telegram)](https://t.me/DionSupport)
+## Support & Updates
+[![Support Chat](https://img.shields.io/badge/Support%20Group-1b77FF.svg?style=for-the-badge&logo=telegram)](https://t.me/DionSupport)
+[![Updates Channel](https://img.shields.io/badge/Updates%20Channel-1b77FF.svg?style=for-the-badge&logo=telegram)](https://t.me/DionProjects)
+
 
 # Deploy
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/SeorangDion/DionBot)
