@@ -4,7 +4,7 @@ from telethon import events, Button
 
 
 START_TEXT = """
-**Hi {}**
+**Hi {}!**
 **Dion Robot is a powerful group management bot built to help you manage your group!**
 
 **Click the below button for getting help menu!**
@@ -48,4 +48,4 @@ async def start(event):
 
 @dion.on(events.callbackquery.CallbackQuery(data="home"))
 async def hstart(event):
-     await event.edit(START_TEXT, buttons=START_BTN)
+     await event.edit(START_TEXT.format(event.sender.first_name), buttons=START_BTN)
