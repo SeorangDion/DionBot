@@ -19,11 +19,11 @@ async def start(event):
         [
             [
                 Button.url("Add me to your group", "https://t.me/DionRobot?startgroup")
-            ]
+            ],
             [
                 Button.url("Repo", "https://github.com/SeorangDion/ManagerBot"),
                 Button.url("Updates", "https://t.me/DionProjects")
-            ]
+            ],
             [
                 Button.inline("Help And Commands", data="help")
             ]
