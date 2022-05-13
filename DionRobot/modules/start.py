@@ -25,7 +25,7 @@ START_BTN = [
             ]
 
 
-@dion.on(events.NewMessage(pattern="^[?!/]start$"))
+@dion.on(events.NewMessage(pattern="^[?!/]start ?(.*)"))
 async def start(event):
 
     if event.is_private:
