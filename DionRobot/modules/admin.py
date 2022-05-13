@@ -1,7 +1,7 @@
 from DionRobot import dion
 from DionRobot.status import *
 
-from telethon import events, Button
+from telethon import events, Button, types
 from telethon.tl.functions.channels import EditAdminRequest, EditBannedRequest
 from telethon.tl.types import ChatAdminRights, ChatBannedRights
 from telethon.tl.functions.users import GetFullUserRequest
@@ -12,6 +12,10 @@ ADMIN_TEXT = """
 **✘ A module from which admins of the chat can use!**
 ‣ `/ban` - To ban a user in the chat.
 ‣ `/kick` - To kick a user in the chat.
+‣ `/pin` - To pinned a reply msg.
+‣ `/unpin` - To Unpin the latest pinned msg.
+‣ `/unpinall` - To unpinall all pinned message at once.
+‣ `/pinned` - To get current pinned msg.
 ‣ `/promote` - To Promote a user in the chat.
 ‣ `/demote` - To Demote a user in the chat.
 ‣ `/invitelink` - To get invitelink of a chat.
@@ -51,6 +55,7 @@ async def promote(event, perm):
 
     await event.reply(f"Succesfully Promoted {input_str} in {event.chat.title}")
  
+
 @dion.on(events.NewMessage(pattern="^[!?/]demote ?(.*)"))
 @is_admin
 async def demote(event, perm):
@@ -124,9 +129,94 @@ async def ban(event, perm):
     await event.reply(f"Succesfully Banned [{info.first_name}](tg://user?id={replied_user}) in {event.chat.title}")
 
 
+@dion.on(events.NewMessage(pattern="^[?!/]pinned"))
+async def get_pinned(event):
+    chat_id = (str(event.chat_id)).replace("-100", "")
+
+    Ok = await dion.get_messages(event.chat_id, ids=types.InputMessagePinned()) 
+    tem = f"The pinned message in {event.chat.title} is <a href=https://t.me/c/{chat_id}/{Ok.id}>here</a>."
+    await event.reply(tem, parse_mode="html", link_preview=False)
+
+
+@dion.on(events.NewMessage(pattern="^[!?/]pin ?(.*)"))
+@is_admin
+async def pin(event, perm):
+    if not perm.pin_messages:
+       await event.reply("You are missing the following rights to use this command:__Can Pin Message__.")
+       return
+    msg = await event.get_reply_message()
+    if not msg:
+       await event.reply("Reply to a msg to pin it!")
+       return
+    input_str = event.pattern_match.group(1)
+    if "notify" in input_str:
+       await dion.pin_message(event.chat_id, msg, notify=True)
+       return
+    await dion.pin_message(event.chat_id, msg)
+
+
+@dion.on(events.NewMessage(pattern="^[!?/]unpin ?(.*)"))
+@is_admin
+async def unpin(event, perm):
+    if not perm.pin_messages:
+       await event.reply("You are missing the following rights to use this command:__Can Pin Message__.")
+       return
+    chat_id = (str(event.chat_id)).replace("-100", "")
+    ok = await dion.get_messages(event.chat_id, ids=types.InputMessagePinned())
+    await dion.unpin_message(event.chat_id, ok)
+    await event.reply(f"Successfully unpinned [this](t.me/{event.chat.username}/{ok.id}) message.", link_preview=False)
+
+@dion.on(events.NewMessage(pattern="^[!?/]permapin"))
+@is_admin
+async def permapin(event, perm):
+    if not perm.pin_messages:
+       await event.reply("You are missing the following rights to use this command:__Can Pin Message.__")
+       return
+    msg = await event.get_reply_message()
+    if not msg:
+       await event.reply("Reply to a msg to permapin it.")
+       return
+    hn = await dion.send_message(event.chat_id, msg.message)
+    await dion.pin_message(event.chat_id, hn, notify=True)
+
+
+@dion.on(events.NewMessage(pattern="^[!?/]unpinall"))
+async def unpinall(event, perm):
+    if not perm.pin_messages:
+       await event.reply("You are missing the following rights to use this command:__Can Pin Message!__")
+       return
+    UNPINALL_TEXT = """
+Are you sure you want to unpin all message?
+This action can't be undone!
+"""
+
+    await dion.send_message(event.chat_id, UNPINALL_TEXT, buttons=[
+    [Button.inline("Confirm", data="unpin")], 
+    [Button.inline("Cancel", data="cancel")]])
+
+@dion.on(events.callbackquery.CallbackQuery(data="unpin"))
+async def confirm(event):
+    check = await event.client.get_permissions(event.chat_id, event.sender_id)
+    if check.is_creator:
+        await dion.unpin_message(event.chat_id)
+        await event.edit("Unpinned All Message!")
+        return 
+
+    await event.answer("You are missing the following rights to use this command: Can Pin Message!", alert=True)
+
+@dion.on(events.callbackquery.CallbackQuery(data="cancel"))
+async def cancel(event):
+
+    check = await event.client.get_permissions(event.chat_id, event.sender_id)
+    if check.is_creator:
+        await event.edit("Unpinning of all messags has been cancelled!")
+        return 
+
+    await event.answer("You are missing the following rights to use this command: Can Pin Message!", alert=True)
+
+
 @dion.on(events.NewMessage(pattern="^[!?/]invitelink"))
 async def invitelink(event):
-
     if event.is_private:
        await event.reply("This cmd is made to be used in groups, not in PM!")
        return
