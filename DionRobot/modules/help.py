@@ -18,7 +18,7 @@ All cmd can be used with '/' or '!'.
 """
 
 
-@dion.on(events.NewMessage(pattern="[!?/]help"))
+@dion.on(events.NewMessage(pattern="[!?/]help ?(.*)"))
 async def help(event):
     if event.is_group:
        await event.reply("Contact me in PM to get available help menu!", 
@@ -30,6 +30,12 @@ async def help(event):
 
 @dion.on(events.NewMessage(pattern="^/start help"))
 async def shelp(event):
+    if event.is_group:
+       await event.reply("Contact me in PM to get available help menu!", 
+       buttons=[
+       [Button.url("Help And Commands!", "https://t.me/DionRobot?start=help")]])
+       return
+
     await event.reply(HELP_TEXT, buttons=btn)
 
 
