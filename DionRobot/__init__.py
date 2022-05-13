@@ -1,7 +1,7 @@
 import logging
 
 from telethon import TelegramClient
-from DionRobot.configs import Config
+from DionRobot.config import Config
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.INFO)
