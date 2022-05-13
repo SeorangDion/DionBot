@@ -8,7 +8,7 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 
 dion = TelegramClient(
         "tgbot",
-        api_id=API_ID,
+        api_id=APP_ID,
         api_hash=API_HASH
         ).start(
                 bot_token=BOT_TOKEN
