@@ -2,17 +2,15 @@ from telethon import events, Button
 from DionRobot import dion
 
 btn =[
-    [Button.inline("Admin", data="admin"), Button.inline("Bans", data="bans")],
-    [Button.inline("Pins", data="pins"), Button.inline("Pugres", data="purges")],
-    [Button.inline("Locks", data="locks"), Button.inline("Misc", data="misc")],
-    [Button.inline("Chat Cleaner", data="zombies")]]
+    [Button.inline("Admin", data="admin"), Button.inline("Purges", data="purges")],
+    [Button.inline("Locks", data="locks"), Button.inline("UserInfo", data="misc")],
+    [Button.inline("Welcome", data="wlc"), Button.inline("Zombies", data="zombies")]]
 
 HELP_TEXT = """
 **Dion Robot help menu:**
 
 /start - To Start Me ;)
 /help - To Get Available Help Menu
-/donate - Donate me :)
 
 __Report Bugs At--->__ @DionSupport
 All cmd can be used with '/' or '!'.
