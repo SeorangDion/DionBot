@@ -7,12 +7,14 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
                     level=logging.INFO)
 
 
+API_HASH = os.environ.get("API_HASH", None)
+API_ID = os.environ.get("API_ID", None)
 TOKEN = os.environ.get("TOKEN", None) # Your token bot, get one from t.me/botfather
 
 dion = TelegramClient(
         "tgbot",
-        api_id=14624642,
-        api_hash="23c93aa64d16911f521bd0b16291af57"
+        api_id=API_ID,
+        api_hash=API_HASH
         ).start(
                 bot_token=TOKEN
                 )
