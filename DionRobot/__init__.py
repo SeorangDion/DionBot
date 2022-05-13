@@ -1,10 +1,13 @@
+import os
 import logging
 
 from telethon import TelegramClient
-from DionRobot.config import Config
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.INFO)
+
+
+TOKEN = os.environ.get("TOKEN", None) # Your token bot, get one from t.me/botfather
 
 dion = TelegramClient(
         "tgbot",
