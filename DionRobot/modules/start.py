@@ -4,7 +4,8 @@ from telethon import events, Button
 
 
 START_TEXT = """
-**Hi {}!**
+**Hi [{}](tg://user?id={})!**
+
 **Dion Robot is a powerful group management bot built to help you manage your group!**
 
 **Click the below button for getting help menu!**
@@ -29,7 +30,7 @@ START_BTN = [
 async def start(event):
 
     if event.is_private:
-       await event.reply(START_TEXT.format(event.sender.first_name), buttons=START_BTN
+       await event.reply(START_TEXT.format(event.sender.first_name, event.sender_id), buttons=START_BTN
        )
        return
 
