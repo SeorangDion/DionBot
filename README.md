@@ -6,7 +6,7 @@
 [![Stars](https://img.shields.io/github/stars/SeorangDion/DionBot?style=flat-square&color=yellow)](https://github.com/SeorangDion/DionBot/stargazers)
 [![Forks](https://img.shields.io/github/forks/SeorangDion/DionBot?style=flat-square&color=orange)](https://github.com/SeorangDion/DionBot/fork)
 [![Size](https://img.shields.io/github/repo-size/SeorangDion/DionBot?style=flat-square&color=green)](https://github.com/SeorangDion/DionBot/)   
-[![Python](https://img.shields.io/badge/Python-v3.10.4-blue)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-v3.10.5-blue)](https://www.python.org/)
 [![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/SeorangDion/DionBot)
 
 ## Configs Vars
@@ -29,6 +29,4 @@ TOKEN - Your bot token, get one from t.me/botfather
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Credits:
-• [Dion](https://GitHub.com/SeorangDion) - Own
-
-• [Galih](https://github.com/galihpujiirianto) - Dev
+• [Dion](https://GitHub.com/SeorangDion) - Owner
