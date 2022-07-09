@@ -6,22 +6,6 @@ from telethon import events
 
 StartTime = time.time()
 
-
-@dion.on(events.NewMessage(pattern="^[?!/]ping ?(.*)"))
-async def _ping(event):
-    uptime = get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    msg = await event.reply("`Pinging...`")
-    end = datetime.now()
-    ping = (end - start).microseconds / 1000
-    await msg.edit(
-         "PONG!!!\n"
-        f"**Ping**: `{ping} ms`\n"
-        f"**Uptime**: `{uptime}`"
-    )
-
-
-
 def get_readable_time(seconds: int) -> str:
     count = 0
     timer = ""
@@ -44,3 +28,17 @@ def get_readable_time(seconds: int) -> str:
     timer += ":".join(time_list)
 
     return timer
+
+
+@dion.on(events.NewMessage(pattern="^[?!/]ping ?(.*)"))
+async def _ping(event):
+    uptime = get_readable_time((time.time() - StartTime))
+    start = datetime.now()
+    msg = await event.reply("`Pinging...`")
+    end = datetime.now()
+    ping = (end - start).microseconds / 1000
+    await msg.edit(
+         "PONG!!!\n"
+        f"**Ping**: `{ping} ms`\n"
+        f"**Uptime**: `{uptime}`"
+    )
