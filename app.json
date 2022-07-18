@@ -27,14 +27,6 @@
     "TOKEN": {
       "description": "Your Bot Token.",
       "value": ""
-    },
-    "API_ID": {
-      "description": "Get this value from my.telegram.org! Please do not steal",
-      "value": ""
-    },
-    "API_HASH": {
-      "description": "Get this value from my.telegram.org! Please do not steal",
-      "value": ""
     }
    },
     "buildpacks": [
