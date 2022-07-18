@@ -11,8 +11,6 @@
 
 ## Configs Vars
 ```
-API_ID - Your telegram api id, get from my.telegram.org
-API_HASH - Your telegram api Hash, get from my.telegram.oeg
 TOKEN - Your bot token, get one from t.me/botfather
 ```
 
@@ -23,7 +21,7 @@ TOKEN - Your bot token, get one from t.me/botfather
 
 # Deploy
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/SeorangDion/DionBot)
-[![Deploy Via Bot Telegram](https://img.shields.io/badge/Deploy%20Via%20Bot%20Telegram-1b77FF.svg?style=for-the-badge&logo=telegram)](https://telegram.dog/XTZ_HerokuBot?start=U2VvcmFuZ0Rpb24vRGlvbkJvdCBkaW9u)
+[![Deploy Via Bot Telegram](https://img.shields.io/badge/Deploy%20Via%20Bot%20Telegram-1b77FF.svg?style=for-the-badge&logo=telegram)](https://t.me/XTZ_HerokuBot?start=U2VvcmFuZ0Rpb24vRGlvbkJvdCBkaW9u)
 
 # Licence
 [![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)
