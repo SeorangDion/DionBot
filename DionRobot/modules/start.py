@@ -49,4 +49,4 @@ async def start(event):
 
 @dion.on(events.callbackquery.CallbackQuery(data="home"))
 async def hstart(event):
-     await event.edit(START_TEXT.format(event.sender.first_name), buttons=START_BTN)
+     await event.edit(START_TEXT.format(event.sender.first_name, event.sender_id), buttons=START_BTN)
